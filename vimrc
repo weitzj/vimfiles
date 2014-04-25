@@ -232,3 +232,8 @@ hi User5 term=inverse,bold cterm=NONE ctermbg=24 ctermfg=209
 
 set number
 
+
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+" au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+" au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+
