@@ -1,9 +1,9 @@
-task :default => [:update, :link, :command_t]
+task :default => [:update, :link, :command_t, :YouCompleteMe]
 
 desc %(Bring bundles up to date)
 task :update do
   sh "git submodule sync >/dev/null"
-  sh "git submodule update --init"
+  sh "git submodule update --init --recursive"
 end
 
 desc %(Update each submodule from its upstream)
@@ -44,6 +44,16 @@ task :command_t => :macvim_check do
       warn color('Warning:', 31) + " Can't compile Command-T, no ruby support in #{vim}"
       sh "make clean"
     end
+  end
+end
+
+desc %(YouCompleteMe Plugin)
+task :YouCompleteMe => :macvim_check do
+  vim = which('mvim') || which('vim') or abort "vim not found on your system"
+  ruby = read_ruby_version(vim)
+
+  Dir.chdir "bundle/YouCompleteMe" do
+    sh "./install.sh"
   end
 end
 
