@@ -24,6 +24,7 @@ endif
 color railscasts
 set synmaxcol=800           " don't try to highlight long lines
 
+set number      " Show line numbers
 set ruler       " show the cursor position all the time
 set cursorline  " highlight the line of the cursor
 set showcmd     " show partial commands below the status line
@@ -104,6 +105,9 @@ augroup vimrcEx
   au BufNewFile,BufRead *.bats setf sh
 
   au BufNewFile,BufRead *.rl setfiletype ragel
+
+  " Enable gradle fileType support as groovy files.
+  au BufNewFile,BufRead *.gradle setf groovy
 
   " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
