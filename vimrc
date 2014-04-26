@@ -232,3 +232,34 @@ hi User5 term=inverse,bold cterm=NONE ctermbg=24 ctermfg=209
 
 set number
 
+" Integrates UltiSnips tab completion with YouCompleteMe
+" See: https://github.com/Valloric/YouCompleteMe/issues/36
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips_JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+" This only works, if a new buffer is opened. And not if vi opens the file
+" directly.
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+
+" Alternative version to use snippets.
+" let g:UltiSnipsExpandTrigger = '<c-l>'
+" let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+" let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+" let g:UltiSnipsListSnippets = '<c-m>'
+
+
