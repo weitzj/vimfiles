@@ -24,7 +24,7 @@ endif
 color railscasts
 set synmaxcol=800           " don't try to highlight long lines
 
-set number      " Show line numbers
+set number      " show line numbers
 set ruler       " show the cursor position all the time
 set cursorline  " highlight the line of the cursor
 set showcmd     " show partial commands below the status line
@@ -155,8 +155,8 @@ map <leader>gt :CommandTTag<cr>
 map <leader>f :CommandT<cr>
 map <leader>F :CommandT %%<cr>
 
-let g:CommandTMatchWindowAtTop=1
-let g:CommandTMaxHeight=10
+" let g:CommandTMatchWindowAtTop=1
+let g:CommandTMaxHeight=5
 let g:CommandTMinHeight=2
 
 let g:turbux_command_test_unit = 'ruby -Ilib:test'
@@ -267,4 +267,7 @@ set undofile
 set undodir=~/.vim/undodir
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_echo_current_error = 0
 
