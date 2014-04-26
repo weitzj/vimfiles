@@ -24,7 +24,6 @@ endif
 color railscasts
 set synmaxcol=800           " don't try to highlight long lines
 
-set nonumber    " line numbers aren't needed
 set ruler       " show the cursor position all the time
 set cursorline  " highlight the line of the cursor
 set showcmd     " show partial commands below the status line
@@ -230,8 +229,6 @@ hi User3 term=inverse,bold cterm=NONE ctermbg=24
 hi User4 term=inverse,bold cterm=NONE ctermbg=24 ctermfg=221
 hi User5 term=inverse,bold cterm=NONE ctermbg=24 ctermfg=209
 
-set number
-
 " Integrates UltiSnips tab completion with YouCompleteMe
 " See: https://github.com/Valloric/YouCompleteMe/issues/36
 let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -253,6 +250,7 @@ function! g:UltiSnips_Complete()
   return ""
 endfunction
 
+" Enable, when the first time in insert mode.
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 " Alternative version to use snippets.
@@ -260,5 +258,4 @@ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=
 " let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 " let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 " let g:UltiSnipsListSnippets = '<c-m>'
-
 
