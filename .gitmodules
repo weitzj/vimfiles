@@ -10,18 +10,12 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/tpope/vim-markdown
-[submodule "bundle/rails"]
-	path = bundle/rails
-	url = https://github.com/tpope/vim-rails
 [submodule "bundle/ruby"]
 	path = bundle/ruby
 	url = https://github.com/vim-ruby/vim-ruby
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim
-[submodule "bundle/endwise"]
-	path = bundle/endwise
-	url = https://github.com/tpope/vim-endwise
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T
@@ -46,33 +40,21 @@
 [submodule "bundle/repeat"]
 	path = bundle/repeat
 	url = https://github.com/tpope/vim-repeat
-[submodule "bundle/liquid"]
-	path = bundle/liquid
-	url = https://github.com/tpope/vim-liquid
 [submodule "bundle/eunuch"]
 	path = bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch
-[submodule "bundle/turbux"]
-	path = bundle/turbux
-	url = https://github.com/jgdavey/vim-turbux
 [submodule "bundle/scriptease"]
 	path = bundle/scriptease
 	url = https://github.com/tpope/vim-scriptease
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired
-[submodule "bundle/tbone"]
-	path = bundle/tbone
-	url = https://github.com/tpope/vim-tbone
 [submodule "bundle/dispatch"]
 	path = bundle/dispatch
 	url = https://github.com/tpope/vim-dispatch
 [submodule "bundle/ragel"]
 	path = bundle/ragel
 	url = https://github.com/jayferd/ragel.vim
-[submodule "bundle/visual-star-search"]
-	path = bundle/visual-star-search
-	url = https://github.com/nelstrom/vim-visual-star-search
 [submodule "bundle/argumentative"]
 	path = bundle/argumentative
 	url = https://github.com/PeterRincker/vim-argumentative
