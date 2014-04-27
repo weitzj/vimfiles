@@ -268,6 +268,3 @@ set undodir=~/.vim/undodir
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_echo_current_error = 0
-
