@@ -25,9 +25,6 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T
-[submodule "bundle/coffee-script"]
-	path = bundle/coffee-script
-	url = https://github.com/kchmck/vim-coffee-script
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary
