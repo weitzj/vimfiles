@@ -6,6 +6,11 @@
 ""   Janus  <github.com/carlhuda/janus>
 ""
 
+" set to POSIX compatible shell (see https://github.com/dag/vim-fish)
+if &shell =~# 'fish$'
+  set shell=bash
+endif
+
 set nocompatible
 set encoding=utf-8
 set exrc                    " load vimrc from current directory
@@ -60,7 +65,7 @@ endif
 set nojoinspaces                  " Use only 1 space after "." when joining lines, not 2
 " Indicator chars
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
-set showbreak=↪\ 
+set showbreak=↪\
 
 "" Searching
 set hlsearch                      " highlight matches
@@ -94,6 +99,9 @@ augroup vimrcEx
 
   " Some file types use real tabs
   au FileType {make,gitconfig} set noexpandtab
+
+  " Fish shell support
+  autocmd FileType fish compiler fish
 
   " Make sure all markdown files have the correct filetype set and setup wrapping
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
