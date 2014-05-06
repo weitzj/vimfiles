@@ -35,11 +35,10 @@ task :command_t => :macvim_check do
   vim = which('mvim') || which('vim') or abort "vim not found on your system"
   ruby = read_ruby_version(vim)
 
-  Dir.chdir "bundle/command-t/ruby/command-t" do
+  Dir.chdir "bundle/command-t/" do
     if ruby
       puts "Compiling Command-T plugin..."
-      sh(*Array(ruby).concat(%w[extconf.rb]))
-      sh "make clean && make"
+      sh "rake make"
     else
       warn color('Warning:', 31) + " Can't compile Command-T, no ruby support in #{vim}"
       sh "make clean"
