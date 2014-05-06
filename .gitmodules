@@ -82,3 +82,6 @@
 [submodule "bundler/Dockerfile"]
 	path = bundler/Dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule ".vim-pathogen"]
+	path = .vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
