@@ -15,10 +15,10 @@ set nocompatible
 set encoding=utf-8
 set exrc                    " load vimrc from current directory
 
-filetype plugin indent on
-let g:CommandTFileScanner = 'watchman'
 call pathogen#infect()
 call pathogen#helptags()
+
+filetype plugin indent on
 
 runtime macros/matchit.vim  " enables % to cycle through `if/else/endif`
 
@@ -84,8 +84,6 @@ set notimeout
 set ttimeout
 set ttimeoutlen=100
 
-" Ragel syntax (default to ruby as host language)
-let g:ragel_default_subtype='ruby'
 
 function! s:setupWrapping()
   set wrap
@@ -115,8 +113,6 @@ augroup vimrcEx
 
   " https://github.com/sstephenson/bats
   au BufNewFile,BufRead *.bats setf sh
-
-  au BufNewFile,BufRead *.rl setfiletype ragel
 
   " Enable gradle fileType support as groovy files.
   au BufNewFile,BufRead *.gradle setf groovy
@@ -166,16 +162,6 @@ nmap <leader>P PV`]=
 " expand %% to current directory in command-line mode
 " http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-map <leader>gl :CommandT lib<cr>
-map <leader>gt :CommandTTag<cr>
-map <leader>f :CommandT<cr>
-map <leader>F :CommandT %%<cr>
-let g:CommandTFileScanner = 'watchman'
-
-" let g:CommandTMatchWindowAtTop=1
-" let g:CommandTMaxHeight=5
-" let g:CommandTMinHeight=2
 
 let g:ackprg = 'ack --nogroup --nocolor --column'
 

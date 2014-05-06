@@ -1,4 +1,4 @@
-task :default => [:update, :link, :command_t, :YouCompleteMe]
+task :default => [:update, :link, :YouCompleteMe]
 
 desc %(Bring bundles up to date)
 task :update do
@@ -30,21 +30,21 @@ task :link do
   end
 end
 
-desc %(Compile Command-T plugin)
-task :command_t => :macvim_check do
-  vim = which('mvim') || which('vim') or abort "vim not found on your system"
-  ruby = read_ruby_version(vim)
+# desc %(Compile Command-T plugin)
+# task :command_t => :macvim_check do
+#   vim = which('mvim') || which('vim') or abort "vim not found on your system"
+#   ruby = read_ruby_version(vim)
 
-  Dir.chdir "bundle/command-t/" do
-    if ruby
-      puts "Compiling Command-T plugin..."
-      sh "rake make"
-    else
-      warn color('Warning:', 31) + " Can't compile Command-T, no ruby support in #{vim}"
-      sh "make clean"
-    end
-  end
-end
+#   Dir.chdir "bundle/command-t/" do
+#     if ruby
+#       puts "Compiling Command-T plugin..."
+#       sh "rake make"
+#     else
+#       warn color('Warning:', 31) + " Can't compile Command-T, no ruby support in #{vim}"
+#       sh "make clean"
+#     end
+#   end
+# end
 
 desc %(YouCompleteMe Plugin)
 task :YouCompleteMe => :macvim_check do

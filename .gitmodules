@@ -10,15 +10,9 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/tpope/vim-markdown
-[submodule "bundle/ruby"]
-	path = bundle/ruby
-	url = https://github.com/vim-ruby/vim-ruby
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim
-[submodule "bundle/command-t"]
-	path = bundle/command-t
-	url = https://github.com/wincent/Command-T
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary
@@ -52,9 +46,6 @@
 [submodule "bundle/dispatch"]
 	path = bundle/dispatch
 	url = https://github.com/tpope/vim-dispatch
-[submodule "bundle/ragel"]
-	path = bundle/ragel
-	url = https://github.com/jayferd/ragel.vim
 [submodule "bundle/argumentative"]
 	path = bundle/argumentative
 	url = https://github.com/PeterRincker/vim-argumentative
@@ -79,12 +70,12 @@
 [submodule "bundle/vim-css-color"]
 	path = bundle/vim-css-color
 	url = https://github.com/ap/vim-css-color
-[submodule "bundler/Dockerfile"]
-	path = bundler/Dockerfile
-	url = https://github.com/ekalinin/Dockerfile.vim.git
 [submodule ".vim-pathogen"]
 	path = .vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule "bundle/unite"]
 	path = bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
+[submodule "Dockerfile"]
+	path = Dockerfile
+	url = https://github.com/ekalinin/Dockerfile.vim.git
