@@ -15,8 +15,10 @@ set nocompatible
 set encoding=utf-8
 set exrc                    " load vimrc from current directory
 
-call pathogen#infect()
 filetype plugin indent on
+let g:CommandTFileScanner = 'watchman'
+call pathogen#infect()
+call pathogen#helptags()
 
 runtime macros/matchit.vim  " enables % to cycle through `if/else/endif`
 
@@ -47,6 +49,8 @@ set autoread
 
 " Disable swap files; systems don't crash that often these days
 set updatecount=0
+set nobackup
+set noswapfile
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*"
@@ -167,10 +171,11 @@ map <leader>gl :CommandT lib<cr>
 map <leader>gt :CommandTTag<cr>
 map <leader>f :CommandT<cr>
 map <leader>F :CommandT %%<cr>
+let g:CommandTFileScanner = 'watchman'
 
 " let g:CommandTMatchWindowAtTop=1
-let g:CommandTMaxHeight=5
-let g:CommandTMinHeight=2
+" let g:CommandTMaxHeight=5
+" let g:CommandTMinHeight=2
 
 let g:ackprg = 'ack --nogroup --nocolor --column'
 
