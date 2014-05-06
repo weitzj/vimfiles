@@ -145,6 +145,11 @@ map Q gq
 " toggle the current fold
 :nnoremap <Space> za
 
+" Unite plugin
+" :nnoremap <C-p> :Unite file_rec/async<cr>
+:nnoremap <C-p> :Unite file_rec<cr>
+:nnoremap <space>/ :Unite grep:.<cr>
+
 let mapleader=","
 
 " yank to system clipboard
