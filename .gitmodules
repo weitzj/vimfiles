@@ -76,6 +76,6 @@
 [submodule "bundle/unite"]
 	path = bundle/unite
 	url = https://github.com/Shougo/unite.vim.git
-[submodule "Dockerfile"]
-	path = Dockerfile
+[submodule "bundle/Dockerfile"]
+	path = bundle/Dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
