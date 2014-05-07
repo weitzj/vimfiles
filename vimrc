@@ -40,6 +40,9 @@ let g:is_bash=1 " default shell syntax
 set history=200 " remember more Ex commands
 set scrolloff=3 " have some context around the current line always on screen
 
+set pastetoggle=<F2>
+
+
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
 set hidden
@@ -145,11 +148,6 @@ map Q gq
 " toggle the current fold
 :nnoremap <Space> za
 
-" Unite plugin
-" :nnoremap <C-p> :Unite file_rec/async<cr>
-:nnoremap <C-p> :Unite file_rec<cr>
-:nnoremap <space>/ :Unite grep:.<cr>
-
 let mapleader=","
 
 " yank to system clipboard
@@ -162,8 +160,6 @@ nmap <leader>P PV`]=
 " expand %% to current directory in command-line mode
 " http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-let g:ackprg = 'ack --nogroup --nocolor --column'
 
 " In command-line mode, C-a jumps to beginning (to match C-e)
 cnoremap <C-a> <Home>
@@ -185,6 +181,7 @@ set wildignore+=tmp/**,*.rbc,.rbx,*.scssc,*.sassc
 " ignore Bundler standalone/vendor installs & gems
 set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**,vendor/gems/**
 set wildignore+=node_modules/**
+set wildignore+=.bundle/**
 
 " toggle between last open buffers
 nnoremap <leader><leader> <c-^>
@@ -280,4 +277,70 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap gd <Plug>(go-def-vertical)
+
+" Fix Cursor in TMUX
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Gitgutter
+let g:gitgutter_enabled = 0
+let g:gitgutter_diff_args = '-w'
+let g:gitgutter_highlight_lines = 1
+nmap <leader><leader>g :GitGutterToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Unite
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+
+" Use ag for search
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  let g:unite_source_grep_default_opts = '--nogroup --column'
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+      \ 'ignore_pattern', join([
+      \ '\.git/',
+      \ '\.bundle/',
+      \ '\bin/',
+      \ '\out/',
+      \ '\build/',
+      \ '\.tmp/',
+      \ '\tmp/',
+      \ ], '\|'))
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+nnoremap <C-P> :<C-u>Unite -start-insert buffer file_rec/async<cr>
+
+" Buffer switching
+nnoremap <leader>b :Unite -quick-match buffer<cr>
+
+autocmd FileType unite call s:unite_settings()
+
+function! s:unite_settings()
+  let b:SuperTabDisabled=1
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+  imap <silent><buffer><expr> <C-s> unite#do_action('split')
+  imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+  imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
 

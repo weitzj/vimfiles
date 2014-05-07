@@ -1,4 +1,4 @@
-task :default => [:update, :link, :YouCompleteMe]
+task :default => [:update, :link, :vimproc, :YouCompleteMe]
 
 desc %(Bring bundles up to date)
 task :update do
@@ -26,6 +26,23 @@ task :link do
       warn "~/.#{script} already exists"
     else
       ln_s File.join('.vim', script), dotfile
+    end
+  end
+end
+
+
+desc %(Compile vimproc plugin)
+task :vimproc => :macvim_check do
+  vim = which('mvim') || which('vim') or abort "vim not found on your system"
+  ruby = read_ruby_version(vim)
+
+  Dir.chdir "bundle/vimproc/" do
+    if ruby
+      puts "Compiling vimproc plugin..."
+      sh "make"
+    else
+      warn color('Warning:', 31) + " Can't compile vimproc, no ruby support in #{vim}"
+      sh "make clean"
     end
   end
 end

@@ -10,9 +10,6 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/tpope/vim-markdown
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = https://github.com/mileszs/ack.vim
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary
@@ -79,3 +76,15 @@
 [submodule "bundle/Dockerfile"]
 	path = bundle/Dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "bundle/vimproc"]
+	path = bundle/vimproc
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/ag"]
+	path = bundle/ag
+	url = https://github.com/rking/ag.vim.git
+[submodule "bundle/neomru"]
+	path = bundle/neomru
+	url = https://github.com/Shougo/neomru.vim.git
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
