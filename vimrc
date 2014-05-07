@@ -273,9 +273,9 @@ nnoremap <leader>v V`]
 " Golang shortcuts
 au FileType go nmap <Leader>i <Plug>(go-import)
 au FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>R <Plug>(go-run)
+au FileType go nmap <leader>B <Plug>(go-build)
+au FileType go nmap <leader>T <Plug>(go-test)
 au FileType go nmap gd <Plug>(go-def-vertical)
 
 " Fix Cursor in TMUX
@@ -291,7 +291,7 @@ endif
 let g:gitgutter_enabled = 0
 let g:gitgutter_diff_args = '-w'
 let g:gitgutter_highlight_lines = 1
-nmap <leader><leader>g :GitGutterToggle<CR>
+nmap <leader>g :GitGutterToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
