@@ -1,13 +1,13 @@
-task :default => [:update, :link, :vimproc, :YouCompleteMe]
+task :default => [:init, :link, :vimproc, :YouCompleteMe]
 
 desc %(Bring bundles up to date)
-task :update do
+task :init do
   sh "git submodule sync >/dev/null"
   sh "git submodule update --init --recursive"
 end
 
 desc %(Update each submodule from its upstream)
-task :submodule_pull do
+task :update do
   system <<-EOS
     git submodule foreach '
       rev=$(git rev-parse HEAD)
