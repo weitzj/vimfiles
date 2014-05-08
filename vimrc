@@ -111,9 +111,6 @@ augroup vimrcEx
   " Make sure all markdown files have the correct filetype set and setup wrapping
   au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
 
-  " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json setf javascript
-
   " https://github.com/sstephenson/bats
   au BufNewFile,BufRead *.bats setf sh
 
@@ -344,4 +341,11 @@ function! s:unite_settings()
 
   nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
+
+
+" => vim-json
+" Show quotes
+let g:vim_json_syntax_conceal = 0
+command! PrettyJson %!jq '.'
+au FileType json nmap <leader><C-p> :PrettyJson<cr>
 
