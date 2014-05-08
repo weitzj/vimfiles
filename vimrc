@@ -347,5 +347,7 @@ endfunction
 " Show quotes
 let g:vim_json_syntax_conceal = 0
 command! PrettyJson %!jq '.'
+command! MinifyJson %!jq --compact-output '.'
 au FileType json nmap <leader><C-p> :PrettyJson<cr>
+au FileType json nmap <leader><C-m> :MinifyJson<cr>
 
