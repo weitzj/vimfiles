@@ -91,9 +91,6 @@
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
-[submodule "bundle/unite-tag"]
-	path = bundle/unite-tag
-	url = https://github.com/tsukkee/unite-tag.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git

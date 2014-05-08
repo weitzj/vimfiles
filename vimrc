@@ -39,6 +39,8 @@ set shell=bash  " avoids munging PATH under zsh
 let g:is_bash=1 " default shell syntax
 set history=200 " remember more Ex commands
 set scrolloff=3 " have some context around the current line always on screen
+set cmdheight=2
+
 
 set pastetoggle=<F2>
 
@@ -71,7 +73,7 @@ if v:version > 703 || v:version == 703 && has("patch541")
 endif
 set nojoinspaces                  " Use only 1 space after "." when joining lines, not 2
 " Indicator chars
-set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
+set listchars=tab:➝\ ,trail:•,extends:❯,precedes:❮
 set showbreak=↪\
 
 "" Searching
@@ -116,6 +118,7 @@ augroup vimrcEx
 
   " Enable gradle fileType support as groovy files.
   au BufNewFile,BufRead *.gradle setf groovy
+  au BufNewFile,BufRead *.groovy setf groovy
 
   " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
@@ -175,6 +178,7 @@ inoremap <s-tab> <c-n>
 
 " ignore Rubinius, Sass cache files
 set wildignore+=tmp/**,*.rbc,.rbx,*.scssc,*.sassc
+set wildignore+=*.class,.git,.hg,.svn,target/**
 " ignore Bundler standalone/vendor installs & gems
 set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**,vendor/gems/**
 set wildignore+=node_modules/**
@@ -324,10 +328,8 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <C-P> :<C-u>Unite -no-split -start-insert buffer file_rec/async<cr>
+nnoremap <silent> <C-P> :<C-u>Unite -no-split -start-insert buffer file_rec/async<cr>
 nnoremap <leader>g :Unite -no-split grep:.<cr>
-nnoremap <leader>t :!~/.vim/bin/retag<cr>:Unite -no-split -auto-preview -start-insert tag<cr>
-au FileType go nnoremap <leader>t :!gotags -R=true -silent=true *.go > tags<cr>:Unite -no-split -auto-preview -start-insert tag<cr>
 
 " Buffer switching
 nnoremap <leader>b :Unite -quick-match buffer<cr>
@@ -363,7 +365,13 @@ au FileType xml nmap <leader><C-m> :MinifyXML<cr>
 
 
 " TagBar
-nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus=1
+let g:tagbar_autoshowtag=1
+let g:tagbar_autopreview=0
+let g:tagbar_width = 40
+
+nnoremap <silent> <F9> :TagbarToggle<cr>
+nnoremap <silent> <F5> :!ctags<cr><cr>
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -393,15 +401,15 @@ let g:tagbar_type_go = {
 \ }
 
 let g:tagbar_type_groovy = {
-    \ 'ctagstype' : 'groovy',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'c:class',
-        \ 'i:interface',
-        \ 'f:function',
-        \ 'v:variables',
-    \ ]
-\ }
+ \ 'ctagstype' : 'groovy',
+ \ 'kinds' : [
+     \ 'p:package',
+     \ 'c:class',
+     \ 'i:interface',
+     \ 'f:function',
+     \ 'v:variables',
+     \ ]
+ \ }
 
 let g:tagbar_type_markdown = {
     \ 'ctagstype' : 'markdown',

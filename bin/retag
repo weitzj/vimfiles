@@ -1,4 +1,0 @@
-#!/bin/sh
-
-ctags -R --exclude=build --exclude=.svn --exclude=.git --exclude=log --exclude=tmp *
-
