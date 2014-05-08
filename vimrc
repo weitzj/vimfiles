@@ -351,3 +351,10 @@ command! MinifyJson %!jq --compact-output '.'
 au FileType json nmap <leader><C-p> :PrettyJson<cr>
 au FileType json nmap <leader><C-m> :MinifyJson<cr>
 
+" XML
+"
+command! PrettyXML exe ":silent %!xmllint --format --recover - 2>/dev/null"
+command! MinifyXML exe ":silent %!xmllint --noblanks - 2>/dev/null"
+au FileType xml nmap <leader><C-p> :PrettyXML<cr>
+au FileType xml nmap <leader><C-m> :MinifyXML<cr>
+
