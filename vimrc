@@ -269,11 +269,11 @@ nnoremap <leader>v V`]
 
 " Golang shortcuts
 au FileType go nmap <Leader>i <Plug>(go-import)
-au FileType go nmap <Leader>gd <Plug>(go-doc-vertical)
+au FileType go nmap <Leader><C-]> <Plug>(go-doc-vertical)
 au FileType go nmap <leader>R <Plug>(go-run)
 au FileType go nmap <leader>B <Plug>(go-build)
 au FileType go nmap <leader>T <Plug>(go-test)
-au FileType go nmap gd <Plug>(go-def-vertical)
+au FileType go nmap <C-]> <Plug>(go-def)
 
 " Fix Cursor in TMUX
 if exists('$TMUX')
