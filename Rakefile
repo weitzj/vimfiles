@@ -1,4 +1,4 @@
-task :default => [:init, :link, :vimproc, :YouCompleteMe]
+task :default => [:init, :link, :vimproc, :gotags, :YouCompleteMe]
 
 desc %(Bring bundles up to date)
 task :init do
@@ -18,9 +18,16 @@ task :update do
   EOS
 end
 
-desc %(Make ~/.vimrc and ~/.gvimrc symlinks)
+desc %(Install gotags)
+task :gotags do
+  system <<-EOS
+    go get -u github.com/jstemmer/gotags
+  EOS
+end
+
+desc %(Make symlinks)
 task :link do
-  %w[vimrc gvimrc].each do |script|
+  %w[vimrc gvimrc ctags].each do |script|
     dotfile = File.join(ENV['HOME'], ".#{script}")
     if File.exist? dotfile
       warn "~/.#{script} already exists"

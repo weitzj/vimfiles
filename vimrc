@@ -288,7 +288,7 @@ endif
 let g:gitgutter_enabled = 0
 let g:gitgutter_diff_args = '-w'
 let g:gitgutter_highlight_lines = 1
-nmap <leader>g :GitGutterToggle<CR>
+" nmap <leader><leader>g :GitGutterToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite
@@ -306,7 +306,7 @@ if executable('ag')
   let g:unite_source_rec_async_command= 'ag --nocolor --nogroup --hidden -g ""'
   let g:unite_source_grep_default_opts = '--nogroup --column'
   let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column --smart-case'
   let g:unite_source_grep_recursive_opt = ''
 endif
 
@@ -325,8 +325,9 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
 nnoremap <C-P> :<C-u>Unite -no-split -start-insert buffer file_rec/async<cr>
+nnoremap <leader>g :Unite -no-split grep:.<cr>
 nnoremap <leader>t :!~/.vim/bin/retag<cr>:Unite -no-split -auto-preview -start-insert tag<cr>
-
+au FileType go nnoremap <leader>t :!gotags -R=true -silent=true *.go > tags<cr>:Unite -no-split -auto-preview -start-insert tag<cr>
 
 " Buffer switching
 nnoremap <leader>b :Unite -quick-match buffer<cr>
@@ -360,3 +361,113 @@ command! MinifyXML exe ":silent %!xmllint --noblanks - 2>/dev/null"
 au FileType xml nmap <leader><C-p> :PrettyXML<cr>
 au FileType xml nmap <leader><C-m> :MinifyXML<cr>
 
+
+" TagBar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+let g:tagbar_type_groovy = {
+    \ 'ctagstype' : 'groovy',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'c:class',
+        \ 'i:interface',
+        \ 'f:function',
+        \ 'v:variables',
+    \ ]
+\ }
+
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+\ }
+
+let g:tagbar_type_puppet = {
+    \ 'ctagstype': 'puppet',
+    \ 'kinds': [
+        \'c:class',
+        \'s:site',
+        \'n:node',
+        \'d:definition'
+      \]
+    \}
+
+let g:tagbar_type_snippets = {
+    \ 'ctagstype' : 'snippets',
+    \ 'kinds' : [
+        \ 's:snippets',
+    \ ]
+\ }
+
+
+" add a definition for Objective-C to tagbar
+let g:tagbar_type_objc = {
+    \ 'ctagstype' : 'ObjectiveC',
+    \ 'kinds'     : [
+        \ 'i:interface',
+        \ 'I:implementation',
+        \ 'p:Protocol',
+        \ 'm:Object_method',
+        \ 'c:Class_method',
+        \ 'v:Global_variable',
+        \ 'F:Object field',
+        \ 'f:function',
+        \ 'p:property',
+        \ 't:type_alias',
+        \ 's:type_structure',
+        \ 'e:enumeration',
+        \ 'M:preprocessor_macro',
+    \ ],
+    \ 'sro'        : ' ',
+    \ 'kind2scope' : {
+        \ 'i' : 'interface',
+        \ 'I' : 'implementation',
+        \ 'p' : 'Protocol',
+        \ 's' : 'type_structure',
+        \ 'e' : 'enumeration'
+    \ },
+    \ 'scope2kind' : {
+        \ 'interface'      : 'i',
+        \ 'implementation' : 'I',
+        \ 'Protocol'       : 'p',
+        \ 'type_structure' : 's',
+        \ 'enumeration'    : 'e'
+    \ }
+\ }
+
+let g:tagbar_type_asciidoc = {
+    \ 'ctagstype' : 'asciidoc',
+    \ 'kinds' : [
+        \ 's:Table of Contents'
+    \ ]
+\ }
