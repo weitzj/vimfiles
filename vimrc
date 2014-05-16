@@ -41,6 +41,8 @@ set history=200 " remember more Ex commands
 set scrolloff=3 " have some context around the current line always on screen
 set cmdheight=2
 
+map <F3> mzgg=G`z<CR>
+
 
 set pastetoggle=<F2>
 
