@@ -21,6 +21,7 @@ call pathogen#helptags()
 filetype plugin indent on
 
 runtime macros/matchit.vim  " enables % to cycle through `if/else/endif`
+let g:goldenview__enable_default_mapping = 0
 
 syntax enable
 if has('gui_running')
@@ -290,11 +291,6 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Gitgutter
-let g:gitgutter_enabled = 0
-let g:gitgutter_diff_args = '-w'
-let g:gitgutter_highlight_lines = 1
-" nmap <leader><leader>g :GitGutterToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Unite

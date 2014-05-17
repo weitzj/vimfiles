@@ -85,9 +85,6 @@
 [submodule "bundle/neomru"]
 	path = bundle/neomru
 	url = https://github.com/Shougo/neomru.vim.git
-[submodule "bundle/vim-gitgutter"]
-	path = bundle/vim-gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
@@ -103,3 +100,6 @@
 [submodule "bundle/vim-tmux-navigator"]
 	path = bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "bundle/GoldenView.Vim"]
+	path = bundle/GoldenView.Vim
+	url = https://github.com/zhaocai/GoldenView.Vim.git
