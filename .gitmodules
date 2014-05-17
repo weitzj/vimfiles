@@ -97,3 +97,6 @@
 [submodule "extra/markdown2ctags"]
 	path = extra/markdown2ctags
 	url = https://github.com/jszakmeister/markdown2ctags.git
+[submodule "bundle/vim-easymotion"]
+	path = bundle/vim-easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
