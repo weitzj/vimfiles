@@ -23,6 +23,8 @@ filetype plugin indent on
 runtime macros/matchit.vim  " enables % to cycle through `if/else/endif`
 let g:goldenview__enable_default_mapping = 0
 
+set mouse=a
+set ttymouse=xterm
 syntax enable
 if has('gui_running')
   set background=light
