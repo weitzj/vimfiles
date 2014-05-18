@@ -147,6 +147,7 @@ augroup END
 " don't use Ex mode, use Q for formatting
 map Q gq
 
+let g:EclimCompletionMethod = 'omnifunc'
 " clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
