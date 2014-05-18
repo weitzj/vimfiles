@@ -353,6 +353,21 @@ function! s:unite_settings()
   nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
 
+"" EasyMotion
+let g:EasyMotion_use_smartsign_us = 1
+nmap / <Plug>(easymotion-sn)
+xmap / <Esc><Plug>(easymotion-sn)\v%V
+omap / <Plug>(easymotion-tn)
+nnoremap g/ /
+"
+" " These `n` & `N` mappings are options. You do not have to map `n` & `N` to
+" EasyMotion.
+" " Without these mappings, `n` & `N` works fine. (These mappings just provide
+" " different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+nmap <leader>s <Plug>(easymotion-s2)
+nmap <leader>t <Plug>(easymotion-t2)
 
 " => vim-json
 " Show quotes
