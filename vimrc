@@ -157,13 +157,13 @@ let mapleader=","
 
 " yank to system clipboard
 map <leader>y "*y
-map <C-x> :!pbcopy<CR>
-map <C-c> :w !pbcopy<CR><CR>
+
+" works on word selections
+map <C-c> y:e ~/tmpmacclipboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
 
 " paste lines from unnamed register and fix indentation
 nmap <leader>p pV`]=
 nmap <leader>P PV`]=
-map <C-v> :r !pbpaste<CR>
 
 " expand %% to current directory in command-line mode
 " http://vimcasts.org/e/14
