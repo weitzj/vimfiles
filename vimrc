@@ -360,25 +360,44 @@ nnoremap g/ /
 " nmap <leader>t <Plug>(easymotion-t2)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyAlign
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ShortCuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>a :Ag<space>
+nnoremap <leader>g :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>c <Plug>Kwbd
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_match_window = 'order:ttb,max:20'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NerdTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:NERDSpaceDelims=1
-
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Eclim
+" YouCompleteMe
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EclimCompletionMethod = 'omnifunc'
+let g:tmuxcomplete#trigger = 'omnifunc'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -435,7 +454,6 @@ let g:tagbar_type_snippets = {
         \ 's:snippets',
     \ ]
 \ }
-
 
 " add a definition for Objective-C to tagbar
 let g:tagbar_type_objc = {

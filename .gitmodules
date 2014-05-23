@@ -16,9 +16,6 @@
 [submodule "bundle/molokai"]
 	path = bundle/molokai
 	url = https://github.com/mrtazz/molokai.vim
-[submodule "bundle/tabular"]
-	path = bundle/tabular
-	url = https://github.com/godlygeek/tabular
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround
@@ -103,3 +100,9 @@
 [submodule "bundle/vim-protobuf"]
 	path = bundle/vim-protobuf
 	url = https://github.com/uarun/vim-protobuf.git
+[submodule "bundle/vim-easy-align"]
+	path = bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "bundle/tmux-complete.vim"]
+	path = bundle/tmux-complete.vim
+	url = https://github.com/wellle/tmux-complete.vim.git
