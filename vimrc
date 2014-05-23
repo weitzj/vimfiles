@@ -9,20 +9,18 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set to POSIX compatible shell (see https://github.com/dag/vim-fish)
-set shell=bash
+set shell=bash " set to POSIX compatible shell (see https://github.com/dag/vim-fish)
 let g:is_bash=1 " default shell syntax
 set nocompatible
+syntax enable
 set encoding=utf-8
 set exrc                    " load vimrc from current directory
 
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
-
 runtime macros/matchit.vim  " enables % to cycle through `if/else/endif`
 
-syntax enable
 if has('gui_running')
   set background=light
 else
@@ -31,7 +29,6 @@ endif
 color railscasts
 
 set mouse=a
-set ttymouse=xterm
 set synmaxcol=800           " don't try to highlight long lines
 set number      " show line numbers
 set ruler       " show the cursor position all the time
@@ -60,9 +57,9 @@ set backupskip=/tmp/*,/private/tmp/*"
 
 "" Whitespace
 set nowrap                        " don't wrap lines
+set expandtab                     " use spaces, not tabs
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
-set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions+=j            " Delete comment char when joining commented lines
@@ -88,12 +85,14 @@ set gdefault                      " have :s///g flag by default on
 
 
 " ignore Rubinius, Sass cache files
-set wildignore+=tmp/**,*.rbc,.rbx,*.scssc,*.sassc
+set wildignore+=tmp/**,*.rbc,.rbx,*.scssc,*.sassc,*.so,*.swp,*.zip,*.exe
 set wildignore+=*.class,.git,.hg,.svn,target/**
 " ignore Bundler standalone/vendor installs & gems
 set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**,vendor/gems/**
 set wildignore+=node_modules/**
 set wildignore+=.bundle/**
+set wildmenu                                                 " show a navigable menu for tab completion
+set wildmode=longest,list,full
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -102,6 +101,7 @@ set wildignore+=.bundle/**
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  set ttymouse=xterm2
 else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -190,6 +190,10 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
+
+
+" in case you forgot to sudo
+cnoremap w!! %!sudo tee > /dev/null %
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -268,6 +272,9 @@ command! XmlPretty exe ":silent %!xmllint --format --recover - 2>/dev/null"
 command! XmlMini exe ":silent %!xmllint --noblanks - 2>/dev/null"
 au FileType xml nmap <leader><C-p> :PrettyXML<cr>
 au FileType xml nmap <leader><C-m> :MinifyXML<cr>
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -316,6 +323,8 @@ au FileType go nmap <C-]> <Plug>(go-def)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
+   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -350,6 +359,20 @@ nnoremap g/ /
 " nmap <leader>s <Plug>(easymotion-s2)
 " nmap <leader>t <Plug>(easymotion-t2)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ShortCuts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>a :Ag<space>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <leader>c <Plug>Kwbd
+let g:ctrlp_match_window = 'order:ttb,max:20'
+let g:NERDSpaceDelims=1
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
