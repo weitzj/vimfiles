@@ -70,9 +70,6 @@
 [submodule ".vim-pathogen"]
 	path = .vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "bundle/unite"]
-	path = bundle/unite
-	url = https://github.com/Shougo/unite.vim.git
 [submodule "bundle/Dockerfile"]
 	path = bundle/Dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
@@ -100,6 +97,3 @@
 [submodule "bundle/vim-tmux-navigator"]
 	path = bundle/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator.git
-[submodule "bundle/GoldenView.Vim"]
-	path = bundle/GoldenView.Vim
-	url = https://github.com/zhaocai/GoldenView.Vim.git
