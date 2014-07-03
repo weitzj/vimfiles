@@ -64,7 +64,8 @@ set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions+=j            " Delete comment char when joining commented lines
 set nojoinspaces                  " Use only 1 space after "." when joining lines, not 2
-set listchars=tab:➝\ ,trail:•,extends:❯,precedes:❮ " Indicator chars
+" set listchars=tab:➝\ ,trail:•,extends:❯,precedes:❮ " Indicator chars
+set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 set showbreak=↪\
 
 " Time out on key codes but not mappings.
