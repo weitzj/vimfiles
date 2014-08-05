@@ -323,10 +323,12 @@ au FileType go nmap <C-]> <Plug>(go-def)
 " AG
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+   set grepprg=ag\ --nogroup\ --nocolor
    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+   let g:ctrlp_use_caching = 0
 endif
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " call unite#custom_source('file_rec/async,file_rec,file_mru,file,buffer,grep',
