@@ -21,7 +21,7 @@ end
 
 desc %(Make symlinks)
 task :link do
-  %w[vimrc gvimrc ctags tmux.conf].each do |script|
+  %w[vimrc gvimrc ctags tmux.conf tigrc].each do |script|
     dotfile = File.join(ENV['HOME'], ".#{script}")
     if File.exist? dotfile
       warn "~/.#{script} already exists"
