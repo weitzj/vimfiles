@@ -34,7 +34,7 @@ set number      " show line numbers
 set ruler       " show the cursor position all the time
 set cursorline  " highlight the line of the cursor
 set showcmd     " show partial commands below the status line
-set history=200 " remember more Ex commands
+set history=2000 " remember more Ex commands
 set scrolloff=3 " have some context around the current line always on screen
 set cmdheight=2
 set pastetoggle=<F2> "Disable auto-indentation in paste mode
