@@ -252,6 +252,13 @@ nnoremap <leader>v V`]
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Web (html,css,javascript)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:javascript_enable_domhtmlcss = 1
+let g:used_javascript_libs = 'angularjs,angularui'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Formatting text
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " remove trailing whitespace
@@ -287,7 +294,7 @@ au FileType xml nmap <leader><C-m> :MinifyXML<cr>
 let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetDirectories  = ["snips"]
+let g:UltiSnipsSnippetDirectories  = ["snips", "UltiSnips", "UltiSnip"]
 function! g:UltiSnips_Complete()
   call UltiSnips#ExpandSnippet()
   if g:ulti_expand_res == 0
