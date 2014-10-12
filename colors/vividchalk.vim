@@ -193,5 +193,5 @@ call s:hifg("rubyMethod"     ,"#DDE93D","Yellow",77) " 191
 "highlight railsMethod   guifg=#EE1122 ctermfg=1
 
 
-highlight TODO  ctermbg=darkgreen guibg=#002b37 ctermfg=Red
+highlight TODO  ctermbg=black guibg=#002b37 ctermfg=Red
 
