@@ -26,7 +26,7 @@ if has('gui_running')
 else
   set background=dark
 endif
-color railscasts
+color vividchalk
 
 set mouse=a
 set synmaxcol=800           " don't try to highlight long lines
