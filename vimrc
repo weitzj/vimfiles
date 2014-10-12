@@ -317,7 +317,7 @@ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GOLANG
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au FileType go nmap <Leader>i <Plug>(go-import)
+au FileType go nmap <Leader>I <Plug>(go-import)
 au FileType go nmap <Leader><C-]> <Plug>(go-doc-vertical)
 au FileType go nmap <leader>R <Plug>(go-run)
 au FileType go nmap <leader>B <Plug>(go-build)
