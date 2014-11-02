@@ -16,6 +16,10 @@ syntax enable
 set encoding=utf-8
 set exrc                    " load vimrc from current directory
 
+if has('nvim')
+  runtime! python_setup.vim
+endif
+
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
