@@ -256,13 +256,6 @@ nnoremap <leader>v V`]
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Web (html,css,javascript)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:javascript_enable_domhtmlcss = 1
-let g:used_javascript_libs = 'angularjs,angularui'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Formatting text
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " remove trailing whitespace
@@ -284,6 +277,18 @@ command! XmlPretty exe ":silent %!xmllint --format --recover - 2>/dev/null"
 command! XmlMini exe ":silent %!xmllint --noblanks - 2>/dev/null"
 au FileType xml nmap <leader><C-p> :PrettyXML<cr>
 au FileType xml nmap <leader><C-m> :MinifyXML<cr>
+
+" html,css,javascript
+autocmd FileType javascript noremap <buffer>  <F3> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <F3> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <F3> :call CSSBeautify()<cr>
+
+
+
+" Web (html,css,javascript)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:javascript_enable_domhtmlcss = 1
+let g:used_javascript_libs = 'angularjs,angularui'
 
 
 

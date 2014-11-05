@@ -4,9 +4,6 @@
 [submodule "bundle/haml"]
 	path = bundle/haml
 	url = https://github.com/chriseppstein/vim-haml
-[submodule "bundle/javascript"]
-	path = bundle/javascript
-	url = https://github.com/pangloss/vim-javascript
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = https://github.com/tpope/vim-markdown
@@ -124,3 +121,12 @@
 [submodule "bundle/jasmine"]
 	path = bundle/jasmine
 	url = git://github.com/claco/jasmine.vim.git
+[submodule "bundle/term_for_vim"]
+	path = bundle/term_for_vim
+	url = https://github.com/marijnh/tern_for_vim.git
+[submodule "bundle/vim-javascript-syntax"]
+	path = bundle/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "bundle/vim-jsbeautify"]
+	path = bundle/vim-jsbeautify
+	url = https://github.com/maksimr/vim-jsbeautify.git
