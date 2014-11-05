@@ -1,4 +1,4 @@
-task :default => [:init, :link, :vimproc, :YouCompleteMe]
+task :default => [:init, :link, :vimproc, :YouCompleteMe, :tern_for_vim]
 
 desc %(Bring bundles up to date)
 task :init do
@@ -83,6 +83,16 @@ task :YouCompleteMe => :macvim_check do
 
   Dir.chdir "bundle/YouCompleteMe" do
     sh "./install.sh"
+  end
+end
+
+desc %(tern_for_vim Plugin)
+task :tern_for_vim => :macvim_check do
+  vim = which('mvim') || which('vim') or abort "vim not found on your system"
+  ruby = read_ruby_version(vim)
+
+  Dir.chdir "bundle/tern_for_vim" do
+    sh "npm install"
   end
 end
 

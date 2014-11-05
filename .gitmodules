@@ -121,12 +121,12 @@
 [submodule "bundle/jasmine"]
 	path = bundle/jasmine
 	url = git://github.com/claco/jasmine.vim.git
-[submodule "bundle/term_for_vim"]
-	path = bundle/term_for_vim
-	url = https://github.com/marijnh/tern_for_vim.git
 [submodule "bundle/vim-javascript-syntax"]
 	path = bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule "bundle/vim-jsbeautify"]
 	path = bundle/vim-jsbeautify
 	url = https://github.com/maksimr/vim-jsbeautify.git
+[submodule "bundle/tern_for_vim"]
+	path = bundle/tern_for_vim
+	url = https://github.com/marijnh/tern_for_vim.git
