@@ -290,7 +290,7 @@ autocmd FileType css noremap <buffer> <F3> :call CSSBeautify()<cr>
 " Web (html,css,javascript)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:javascript_enable_domhtmlcss = 1
-let g:used_javascript_libs = 'angularjs,angularui'
+let g:used_javascript_libs = 'angularjs,angularui,underscore'
 
 let g:tern_show_argument_hints = 'on_move'
 
