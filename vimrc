@@ -269,14 +269,16 @@ map <F3> mzgg=G`z<CR>
 let g:vim_json_syntax_conceal = 0
 command! JsonPretty %!jq '.'
 command! JsonMini %!jq --compact-output '.'
-au FileType json nmap <leader><C-p> :PrettyJson<cr>
-au FileType json nmap <leader><C-m> :MinifyJson<cr>
+au FileType json nmap <leader><C-p> :JsonPretty<cr>
+au FileType json nmap <leader><C-m> :JsonMini<cr>
+autocmd FileType json noremap <buffer>  <F3> :JsonPretty<cr>
 
 " XML
 command! XmlPretty exe ":silent %!xmllint --format --recover - 2>/dev/null"
 command! XmlMini exe ":silent %!xmllint --noblanks - 2>/dev/null"
-au FileType xml nmap <leader><C-p> :PrettyXML<cr>
-au FileType xml nmap <leader><C-m> :MinifyXML<cr>
+au FileType xml nmap <leader><C-p> :XmlPretty<cr>
+au FileType xml nmap <leader><C-m> :XmlMini<cr>
+au FileType xml nmap <F3> :XmlPretty<cr>
 
 " html,css,javascript
 autocmd FileType javascript noremap <buffer>  <F3> :call JsBeautify()<cr>
@@ -290,7 +292,7 @@ autocmd FileType css noremap <buffer> <F3> :call CSSBeautify()<cr>
 let g:javascript_enable_domhtmlcss = 1
 let g:used_javascript_libs = 'angularjs,angularui'
 
-
+let g:tern_show_argument_hints = 'on_move'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
