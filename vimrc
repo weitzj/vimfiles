@@ -334,6 +334,7 @@ au FileType go nmap <leader>R <Plug>(go-run)
 au FileType go nmap <leader>B <Plug>(go-build)
 au FileType go nmap <leader>T <Plug>(go-test)
 au FileType go nmap <C-]> <Plug>(go-def)
+let g:go_fmt_command = "goimports"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
