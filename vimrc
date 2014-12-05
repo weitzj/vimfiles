@@ -367,10 +367,10 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " EasyMotion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EasyMotion_use_smartsign_us = 1
-nmap / <Plug>(easymotion-sn)
-xmap / <Esc><Plug>(easymotion-sn)\v%V
-omap / <Plug>(easymotion-tn)
-nnoremap g/ /
+" nmap / <Plug>(easymotion-sn)
+" xmap / <Esc><Plug>(easymotion-sn)\v%V
+" omap / <Plug>(easymotion-tn)
+" nnoremap g/ /
 "
 " " These `n` & `N` mappings are options. You do not have to map `n` & `N` to
 " EasyMotion.
