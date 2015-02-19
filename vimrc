@@ -142,6 +142,9 @@ augroup vimrcEx
 
   " https://github.com/sstephenson/bats
   au BufNewFile,BufRead *.bats setf sh
+  "
+  " Enable geojson filetype
+  au BufNewFile,BufRead *.geojson setf json
 
   " Enable gradle fileType support as groovy files.
   au BufNewFile,BufRead *.gradle setf groovy
