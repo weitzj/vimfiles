@@ -142,3 +142,6 @@
 [submodule "bundle/vim-plist"]
 	path = bundle/vim-plist
 	url = https://github.com/darfink/vim-plist.git
+[submodule "bundle/kotlin-vim"]
+	path = bundle/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim
