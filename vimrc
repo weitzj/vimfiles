@@ -308,9 +308,9 @@ let g:tern_show_argument_hints = 'on_move'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Integrates UltiSnips tab completion with YouCompleteMe
 " See: https://github.com/Valloric/YouCompleteMe/issues/36
-let g:UltiSnipsExpandTrigger       = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<C-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<<C-k>"
+let g:UltiSnipsExpandTrigger       = "<C-l>"
+let g:UltiSnipsJumpForwardTrigger  = "<C-l>"
+let g:UltiSnipsJumpBackwardTrigger = "<<C-h>"
 let g:UltiSnipsSnippetDirectories  = ["snips", "UltiSnips", "UltiSnip"]
 " function! g:UltiSnips_Complete()
 "   call UltiSnips#ExpandSnippet()

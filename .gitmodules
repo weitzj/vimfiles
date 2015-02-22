@@ -145,3 +145,6 @@
 [submodule "bundle/kotlin-vim"]
 	path = bundle/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
