@@ -429,6 +429,16 @@ let g:tmuxcomplete#trigger = 'omnifunc'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+"
+" " Show just the filename
+" let g:airline#extensions#tabline#fnamemod = ':t'
+ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TagBar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_autofocus=1

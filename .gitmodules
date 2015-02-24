@@ -49,9 +49,6 @@
 [submodule "bundle/vim-glsl"]
 	path = bundle/vim-glsl
 	url = https://github.com/tikhomirov/vim-glsl
-[submodule "bundle/vim-bufferline"]
-	path = bundle/vim-bufferline
-	url = https://github.com/bling/vim-bufferline
 [submodule "bundle/vim-fish"]
 	path = bundle/vim-fish
 	url = https://github.com/dag/vim-fish.git
@@ -148,3 +145,6 @@
 [submodule "bundle/vim-snippets"]
 	path = bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline
