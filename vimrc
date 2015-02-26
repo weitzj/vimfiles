@@ -370,6 +370,7 @@ au FileType go nmap <leader>B <Plug>(go-build)
 
 au FileType go nmap <Leader>gi <Plug>(go-info)
 au FileType go nmap <Leader>gr <Plug>(go-rename)
+au FileType go nmap <Leader>gc <Plug>(go-channelpeers)
 
 au FileType go nmap <leader>gtt <Plug>(go-test)
 au FileType go nmap <leader>gtc <Plug>(go-coverage)
