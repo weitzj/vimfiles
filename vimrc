@@ -167,6 +167,7 @@ augroup vimrcEx
 
   " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+  au FileType sh set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
@@ -190,7 +191,7 @@ augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " don't use Ex mode, use Q for formatting
 map Q gq
-:nnoremap <CR> :nohlsearch<cr> " clear the search buffer when hitting return
+" :nnoremap <CR> :nohlsearch<cr> " clear the search buffer when hitting return
 :nnoremap <Space> za " toggle the current fold
 
 " disable cursor keys in normal mode
@@ -272,6 +273,20 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>v V`]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Add modeline shortcut
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Append modeline after last line in buffer.
+" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+" files.
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
+        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Formatting text
@@ -346,16 +361,28 @@ let g:UltiSnipsSnippetDirectories  = ["snips", "UltiSnips", "UltiSnip"]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GOLANG
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:go_def_mapping_enabled = 0
 au FileType go nmap <C-]> <Plug>(go-def)
 au FileType go nmap <Leader><C-]> <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>I <Plug>(go-import)
-au FileType go nmap <Leader>E <Plug>(go-rename)
-au FileType go nmap <Leader>L <Plug>(go-lint)
+
 au FileType go nmap <leader>R <Plug>(go-run)
 au FileType go nmap <leader>B <Plug>(go-build)
-au FileType go nmap <leader>T <Plug>(go-test)
-au FileType go nmap <leader>V <Plug>(go-vet)
+
+au FileType go nmap <Leader>gi <Plug>(go-info)
+au FileType go nmap <Leader>gr <Plug>(go-rename)
+
+au FileType go nmap <leader>gtt <Plug>(go-test)
+au FileType go nmap <leader>gtc <Plug>(go-coverage)
+au FileType go nmap <leader>gv <Plug>(go-vet)
+au FileType go nmap <Leader>gl <Plug>(go-lint)
+au FileType go nnoremap <leader>ge :call go#errcheck#Run()<CR>
 let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -368,7 +395,7 @@ if executable('ag')
    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
    let g:ctrlp_use_caching = 1
 endif
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " call unite#custom_source('file_rec/async,file_rec,file_mru,file,buffer,grep',
@@ -416,7 +443,7 @@ nmap <Leader>a <Plug>(EasyAlign)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ShortCuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>g :Ag<space>
+nnoremap <leader><leader>g :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <F1> :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
@@ -453,6 +480,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':t'
  let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TagBar
