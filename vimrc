@@ -60,13 +60,18 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set backupskip=/tmp/*,/private/tmp/*"
 
 "" Whitespace
-set nowrap                        " don't wrap lines
+set wrap                        " don't wrap lines
+set linebreak
 set expandtab                     " use spaces, not tabs
+set textwidth=0
+set wrapmargin=0
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
-set list                          " Show invisible characters
+" set list                          " Show invisible characters
+set nolist " list disables linebreak"
 set backspace=indent,eol,start    " backspace through everything in insert mode
 set formatoptions+=j            " Delete comment char when joining commented lines
+set formatoptions+=l            " 
 set nojoinspaces                  " Use only 1 space after "." when joining lines, not 2
 " set listchars=tab:➝\ ,trail:•,extends:❯,precedes:❮ " Indicator chars
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
@@ -135,6 +140,7 @@ function! s:setupWrapping()
   set textwidth=80
 endfunction
 
+
 augroup vimrcEx
   " Clear all autocmds in the group
   autocmd!
@@ -166,8 +172,8 @@ augroup vimrcEx
   au BufNewFile,BufRead *.gnuplot setf gnuplot
 
   " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-  au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-  au FileType sh set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+  au FileType python set softtabstop=4 tabstop=4 shiftwidth=4
+  au FileType sh set softtabstop=4 tabstop=4 shiftwidth=4
 
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
