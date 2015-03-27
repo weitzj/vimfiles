@@ -201,10 +201,10 @@ map Q gq
 :nnoremap <Space> za " toggle the current fold
 
 " disable cursor keys in normal mode
-map <Left>  :echo "no!"<cr>
-map <Right> :echo "no!"<cr>
-map <Up>    :echo "no!"<cr>
-map <Down>  :echo "no!"<cr>
+" map <Left>  :echo "no!"<cr>
+" map <Right> :echo "no!"<cr>
+" map <Up>    :echo "no!"<cr>
+" map <Down>  :echo "no!"<cr>
 
 " In command-line mode, C-a jumps to beginning (to match C-e)
 cnoremap <C-a> <Home>
