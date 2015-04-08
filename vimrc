@@ -175,6 +175,8 @@ augroup vimrcEx
   au FileType python set softtabstop=4 tabstop=4 shiftwidth=4
   au FileType sh set softtabstop=4 tabstop=4 shiftwidth=4
 
+  autocmd FileType puppet set commentstring=#\ %s
+
   " Remember last location in file, but not for commit messages.
   " see :help last-position-jump
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
