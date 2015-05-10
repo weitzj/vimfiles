@@ -272,7 +272,7 @@ let mapleader=","
 " Clipboard
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " custom clipboard for mac os x
-map <C-c> y:e ~/tmpclipboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
+" map <C-c> y:e ~/tmpclipboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
 
 " toggle between last open buffers
 nnoremap <leader><leader> <c-^>
@@ -401,7 +401,13 @@ let g:go_highlight_structs = 1
 if executable('ag')
    set grepprg=ag\ --vimgrep\ --nogroup\ --nocolor
    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+   let g:ctrlp_user_command = 'ag %s -l --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
    let g:ctrlp_use_caching = 1
 endif
 " nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
