@@ -348,7 +348,7 @@ let g:tern_show_argument_hints = 'on_move'
 " See: https://github.com/Valloric/YouCompleteMe/issues/36
 let g:UltiSnipsExpandTrigger       = "<C-l>"
 let g:UltiSnipsJumpForwardTrigger  = "<C-l>"
-let g:UltiSnipsJumpBackwardTrigger = "<<C-h>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
 let g:UltiSnipsSnippetDirectories  = ["snips", "UltiSnips", "UltiSnip"]
 " function! g:UltiSnips_Complete()
 "   call UltiSnips#ExpandSnippet()
