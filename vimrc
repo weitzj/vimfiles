@@ -330,7 +330,6 @@ autocmd FileType html noremap <buffer> <F3> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <F3> :call CSSBeautify()<cr>
 
 
-
 " Web (html,css,javascript)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:javascript_enable_domhtmlcss = 1
