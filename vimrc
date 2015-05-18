@@ -274,8 +274,8 @@ let mapleader=","
 " custom clipboard for mac os x
 " map <C-c> y:e ~/tmpclipboard<CR>P:w !pbcopy<CR><CR>:bdelete!<CR>
 set clipboard=unnamed
-vmap <C-x> :!pbcopy<CR>  
-vmap <C-c> :w !pbcopy<CR><CR> 
+" vmap <C-x> :!pbcopy<CR>  
+" vmap <C-c> :w !pbcopy<CR><CR> 
 
 " toggle between last open buffers
 nnoremap <leader><leader> <c-^>
