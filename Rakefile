@@ -82,7 +82,7 @@ task :YouCompleteMe => :macvim_check do
   ruby = read_ruby_version(vim)
 
   Dir.chdir "bundle/YouCompleteMe" do
-    sh "./install.sh"
+    sh "./install.sh --clang-completer --gocode-completer"
   end
 end
 
