@@ -36,7 +36,7 @@ task :ecliminstall do
   if !File.exist? 'extra/eclim/eclipse'
     warn "Need to unpack eclipse"
     Dir.chdir 'extra/eclim/' do
-      sh "curl http://mirror.selfnet.de/eclipse/technology/epp/downloads/release/luna/SR1a/eclipse-java-luna-SR1a-macosx-cocoa-x86_64.tar.gz | tar xvzf -"
+      sh "curl http://ftp.halifax.rwth-aachen.de/eclipse//technology/epp/downloads/release/luna/SR2/eclipse-java-luna-SR2-macosx-cocoa-x86_64.tar.gz | tar xvzf -"
       sh "curl http://garr.dl.sourceforge.net/project/eclim/eclim/2.4.1/eclim_2.4.1.jar > eclim_2.4.1.jar"
       sh "java -Dvim.files=$HOME/.vim -Declipse.home=$HOME/.vim/extra/eclim/eclipse -jar eclim_2.4.1.jar install"
     end
