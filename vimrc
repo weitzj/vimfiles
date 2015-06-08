@@ -487,6 +487,7 @@ let g:NERDSpaceDelims=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EclimCompletionMethod = 'omnifunc'
 let g:tmuxcomplete#trigger = 'omnifunc'
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
