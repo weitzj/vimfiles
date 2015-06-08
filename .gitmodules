@@ -151,9 +151,6 @@
 [submodule "bundle/YCM-Generator"]
 	path = bundle/YCM-Generator
 	url = https://github.com/rdnetto/YCM-Generator.git
-[submodule "bundle/lexima"]
-	path = bundle/lexima
-	url = https://github.com/cohama/lexima.vim.git
 [submodule "bundle/vim-endwise"]
 	path = bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
