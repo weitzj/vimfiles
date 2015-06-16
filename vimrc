@@ -487,8 +487,12 @@ let g:NERDSpaceDelims=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EclimCompletionMethod = 'omnifunc'
 let g:tmuxcomplete#trigger = 'omnifunc'
-let g:ycm_extra_conf_vim_data = ['&filetype']
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
+let fts = ['c', 'cpp', 'objc']
+" if index(fts, &filetype) != -1
+"   let g:ycm_extra_conf_vim_data = ['&filetype']
+"   let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+" endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
