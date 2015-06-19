@@ -12,16 +12,54 @@
 set shell=bash " set to POSIX compatible shell (see https://github.com/dag/vim-fish)
 let g:is_bash=1 " default shell syntax
 set nocompatible
-syntax enable
-set encoding=utf-8
 set exrc                    " load vimrc from current directory
 
 if has('nvim')
   runtime! python_setup.vim
 endif
 
-call pathogen#infect()
-call pathogen#helptags()
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.sh
+  endif
+endfunction
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'Raimondi/delimitMate'
+Plug 'majutsushi/tagbar'
+
+Plug 'wellle/tmux-complete.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'rking/ag.vim' | Plug 'kien/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/syntastic'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'ap/vim-css-color'
+Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'pangloss/vim-javascript' | Plug 'jelera/vim-javascript-syntax'
+Plug 'uarun/vim-protobuf', { 'for': 'proto' }
+Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
+Plug 'dag/vim-fish', { 'for': 'fish' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'darfink/vim-plist', { 'for': 'plist' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+call plug#end()
+
 filetype plugin indent on
 runtime macros/matchit.vim  " enables % to cycle through `if/else/endif`
 
@@ -35,10 +73,7 @@ color vividchalk
 set mouse=a
 set synmaxcol=800           " don't try to highlight long lines
 set number      " show line numbers
-set ruler       " show the cursor position all the time
 set cursorline  " highlight the line of the cursor
-set showcmd     " show partial commands below the status line
-set history=2000 " remember more Ex commands
 set scrolloff=3 " have some context around the current line always on screen
 set cmdheight=2
 set pastetoggle=<F2> "Disable auto-indentation in paste mode
@@ -60,35 +95,14 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set backupskip=/tmp/*,/private/tmp/*"
 
 "" Whitespace
-set wrap                        " don't wrap lines
-set linebreak
-set expandtab                     " use spaces, not tabs
-set textwidth=0
-set wrapmargin=0
-set tabstop=2                     " a tab is two spaces
-set shiftwidth=2                  " an autoindent (with <<) is two spaces
-" set list                          " Show invisible characters
-set nolist " list disables linebreak"
-set backspace=indent,eol,start    " backspace through everything in insert mode
-set formatoptions+=j            " Delete comment char when joining commented lines
-set formatoptions+=l            " 
-set nojoinspaces                  " Use only 1 space after "." when joining lines, not 2
-" set listchars=tab:➝\ ,trail:•,extends:❯,precedes:❮ " Indicator chars
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
-set showbreak=↪\
 
-" Time out on key codes but not mappings.
-" Basically this makes terminal Vim work sanely.
-set notimeout
-set ttimeout
-set ttimeoutlen=100
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch                      " highlight matches
-set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
 set smartcase                     " ... unless they contain at least one capital letter
 set gdefault                      " have :s///g flag by default on
@@ -113,7 +127,6 @@ set wildignore+=*.class,.git,.hg,.svn,target/**
 set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**,vendor/gems/**
 set wildignore+=node_modules/**
 set wildignore+=.bundle/**
-set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

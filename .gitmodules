@@ -55,9 +55,6 @@
 [submodule "bundle/vim-css-color"]
 	path = bundle/vim-css-color
 	url = https://github.com/ap/vim-css-color
-[submodule ".vim-pathogen"]
-	path = .vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "bundle/Dockerfile"]
 	path = bundle/Dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
@@ -91,9 +88,6 @@
 [submodule "bundle/vim-protobuf"]
 	path = bundle/vim-protobuf
 	url = https://github.com/uarun/vim-protobuf.git
-[submodule "bundle/vim-easy-align"]
-	path = bundle/vim-easy-align
-	url = https://github.com/junegunn/vim-easy-align.git
 [submodule "bundle/tmux-complete.vim"]
 	path = bundle/tmux-complete.vim
 	url = https://github.com/wellle/tmux-complete.vim.git
