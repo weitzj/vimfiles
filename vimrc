@@ -48,7 +48,7 @@ Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle','NERDTreeFind'] }
 
 Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json', { 'for': 'json' }
