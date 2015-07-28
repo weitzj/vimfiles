@@ -50,6 +50,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle','NERDTreeFind'] }
 
+Plug 'davejlong/cf-utils.vim'
 Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'pangloss/vim-javascript' | Plug 'jelera/vim-javascript-syntax'
@@ -97,6 +98,8 @@ set backupskip=/tmp/*,/private/tmp/*"
 
 "" Whitespace
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
+set list
+set expandtab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -153,7 +156,7 @@ endif
 function! s:setupWrapping()
   set wrap
   set wrapmargin=2
-  set textwidth=80
+  set textwidth=120
 endfunction
 
 
