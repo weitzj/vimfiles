@@ -54,7 +54,7 @@ Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle','NERDTreeFind'] }
 Plug 'davejlong/cf-utils.vim'
 Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'pangloss/vim-javascript' | Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript' | Plug 'jelera/vim-javascript-syntax' | Plug 'maksimr/vim-jsbeautify' | Plug 'einars/js-beautify'
 Plug 'uarun/vim-protobuf', { 'for': 'proto' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'dag/vim-fish', { 'for': 'fish' }
