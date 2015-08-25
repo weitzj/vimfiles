@@ -41,6 +41,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'matze/vim-lilypond'
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rking/ag.vim' | Plug 'kien/ctrlp.vim'
@@ -186,6 +187,8 @@ augroup vimrcEx
   " Enable gradle fileType support as groovy files.
   au BufNewFile,BufRead *.gradle setf groovy
   au BufNewFile,BufRead *.groovy setf groovy
+
+  au! BufNewFile,BufRead *.ly,*.ily,*.lytex set ft=lilypond commentstring=%\ %s
 
   " Enable gnuplot fileType
   au BufNewFile,BufRead *.gnuplot setf gnuplot
