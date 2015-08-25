@@ -53,6 +53,7 @@ Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle','NERDTreeFind'] }
 
 Plug 'davejlong/cf-utils.vim'
 Plug 'ap/vim-css-color'
+Plug 'kballard/vim-swift', { 'for': 'swift' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'pangloss/vim-javascript' | Plug 'jelera/vim-javascript-syntax' | Plug 'maksimr/vim-jsbeautify' | Plug 'einars/js-beautify'
 Plug 'uarun/vim-protobuf', { 'for': 'proto' }
