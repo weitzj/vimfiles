@@ -514,6 +514,7 @@ let fts = ['c', 'cpp', 'objc']
 "   let g:ycm_extra_conf_vim_data = ['&filetype']
 "   let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 " endif
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
