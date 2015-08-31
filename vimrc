@@ -51,6 +51,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle','NERDTreeFind'] }
 
+Plug 'elixir-lang/vim-elixir'
 Plug 'davejlong/cf-utils.vim'
 Plug 'ap/vim-css-color'
 Plug 'kballard/vim-swift', { 'for': 'swift' }
