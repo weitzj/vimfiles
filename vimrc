@@ -87,6 +87,11 @@ set autoread " Auto-reload buffers when file changed on disk
 set splitright
 set splitbelow
 
+
+set spelllang=de,en
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=red
+
 " Disable swap files; systems don't crash that often these days
 set updatecount=0
 set nobackup
