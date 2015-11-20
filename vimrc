@@ -41,16 +41,19 @@ Plug 'tpope/vim-unimpaired'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
-
+Plug 'wincent/terminus'
 Plug 'matze/vim-lilypond'
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'rking/ag.vim' | Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
+
 Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle','NERDTreeFind'] }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'elixir-lang/vim-elixir'
 Plug 'davejlong/cf-utils.vim'
@@ -63,7 +66,8 @@ Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'darfink/vim-plist', { 'for': 'plist' }
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+" Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+Plug 'docker/docker' , {'for': 'Dockerfile'}
 call plug#end()
 
 filetype plugin indent on
@@ -444,7 +448,7 @@ if executable('ag')
 endif
 " nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"
 " call unite#custom_source('file_rec/async,file_rec,file_mru,file,buffer,grep',
 "       \ 'ignore_pattern', join([
 "       \ '\.git/',
@@ -491,17 +495,49 @@ nmap ga <Plug>(EasyAlign)
 " ShortCuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader><leader>g :Ag<space>
-nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <F1> :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
-nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>c <Plug>Kwbd
 
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlP
+" FZF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_match_window = 'order:ttb,max:20'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+nnoremap <silent> <Leader>b :call fzf#run({
+\   'source':  reverse(<sid>buflist()),
+\   'sink':    function('<sid>bufopen'),
+\   'options': '+m',
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+" - window (nvim only)
+let g:fzf_layout = { 'down': '~20%' }
+
+" Advanced customization using autoload functions
+autocmd VimEnter * command! Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'})
+
+nnoremap <silent> <c-p> :FZF<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree
