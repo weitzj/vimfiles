@@ -619,7 +619,7 @@ let g:tagbar_autopreview=0
 let g:tagbar_width = 40
 
 nnoremap <silent> <F9> :TagbarToggle<cr>
-nnoremap <silent> <F5> :!ctags<cr><cr>
+nnoremap <silent> <F5> :!ctags -R --exclude=.git --exclude=node_modules<cr><cr>
 
 let g:tagbar_type_groovy = {
  \ 'ctagstype' : 'groovy',
