@@ -46,6 +46,7 @@ Plug 'matze/vim-lilypond'
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rking/ag.vim'
+Plug 'milkypostman/vim-togglelist'
 
 Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
@@ -58,6 +59,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'davejlong/cf-utils.vim'
 Plug 'ap/vim-css-color'
+Plug 'dcharbon/vim-flatbuffers', { 'for': 'fbs' }
 Plug 'kballard/vim-swift', { 'for': 'swift' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'pangloss/vim-javascript' | Plug 'jelera/vim-javascript-syntax' | Plug 'maksimr/vim-jsbeautify' | Plug 'einars/js-beautify'
