@@ -65,6 +65,7 @@ Plug 'uarun/vim-protobuf', { 'for': 'proto' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'darfink/vim-plist', { 'for': 'plist' }
 " Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'docker/docker' , {'for': 'Dockerfile'}
@@ -639,6 +640,15 @@ let g:tagbar_type_puppet = {
         \'s:site',
         \'n:node',
         \'d:definition'
+      \]
+    \}
+
+let g:tagbar_type_elm = {
+    \ 'ctagstype': 'elm',
+    \ 'kinds': [
+        \'m:module',
+        \'t:type',
+        \'v:function'
       \]
     \}
 
