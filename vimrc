@@ -169,13 +169,15 @@ endif
 function! s:setupWrapping()
   set wrap
   set wrapmargin=2
-  set textwidth=120
+  set textwidth=80
 endfunction
 
 
 augroup vimrcEx
   " Clear all autocmds in the group
   autocmd!
+
+  autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
 
   " Avoid showing trailing whitespace when in insert mode
   au InsertEnter * :set listchars-=trail:•
@@ -188,7 +190,7 @@ augroup vimrcEx
   autocmd FileType fish compiler fish
 
   " Make sure all markdown files have the correct filetype set and setup wrapping
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
+  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} setf markdown | call s:setupWrapping()
 
   " https://github.com/sstephenson/bats
   au BufNewFile,BufRead *.bats setf sh
@@ -320,6 +322,11 @@ nnoremap <leader>v V`]
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle quick fix
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <script> <silent> <leader>e :call ToggleLocationList()<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
@@ -353,6 +360,9 @@ command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
 " reindent
 map <F3> mzgg=G`z<CR>
+
+" reformat
+map <F4> mzggVGgq`z<CR>
 
 
 " JSON
