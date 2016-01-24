@@ -120,6 +120,7 @@ set backupskip=/tmp/*,/private/tmp/*"
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 set list
 set expandtab
+set tabstop=4
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
