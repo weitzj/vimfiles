@@ -71,6 +71,10 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'darfink/vim-plist', { 'for': 'plist' }
 " Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'docker/docker' , {'for': 'Dockerfile'}
+
+Plug 'rizzatti/dash.vim'
+nmap <silent> <F1> <Plug>DashSearch
+
 call plug#end()
 
 filetype plugin indent on
@@ -552,7 +556,7 @@ nmap ga <Plug>(EasyAlign)
 " ShortCuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader><leader>g :Ag<space>
-nnoremap <F1> :NERDTreeToggle<CR>
+nnoremap <leader><F1> :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>c <Plug>Kwbd
 
