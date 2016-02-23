@@ -4,7 +4,6 @@
 
 root = true
 
-
 [*]
 
 # Change these settings to your own preference
@@ -20,18 +19,29 @@ insert_final_newline = true
 [**.md]
 trim_trailing_whitespace = false
 
-
-
 [**.js]
-# Change these settings to your own preference
+; Path to the external file format
+; The default is taken from the lib folder inside the folder extension.
+path=~/.vim/plugged/js-beautify/js/lib/beautify.js
+; Javascript interpreter to be invoked by default 'node'
+bin=node
+indent_style = space
+indent_size = 2
+jslint_happy = true
+brace_style = collapse
+
+
+[**.css]
+path=~/.vim/plugged/js-beautify/js/lib/beautify-css.js
 indent_style = space
 indent_size = 2
 
-# We recommend you to keep these unchanged
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-jslint_happy = true
-brace_style = collapse
+[**.html]
+; Using special comments
+; And such comments or apply only in global configuration
+; So it's best to avoid them
+;vim:path=~/.vim/plugged/js-beautify/js/lib/beautify-html.js
+;vim:max_char=78:brace_style=expand
+indent_style = space
+indent_size = 2
 
