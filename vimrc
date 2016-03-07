@@ -34,7 +34,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -42,7 +41,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'wincent/terminus'
-Plug 'matze/vim-lilypond'
 Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rking/ag.vim'
@@ -50,26 +48,25 @@ Plug 'milkypostman/vim-togglelist'
 
 Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle','NERDTreeFind'] }
+Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'honza/vim-snippets', { 'on': [] }
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle','NERDTreeFind'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'elixir-lang/vim-elixir'
-Plug 'davejlong/cf-utils.vim'
-Plug 'ap/vim-css-color'
 Plug 'dcharbon/vim-flatbuffers', { 'for': 'fbs' }
-Plug 'kballard/vim-swift', { 'for': 'swift' }
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'pangloss/vim-javascript' | Plug 'jelera/vim-javascript-syntax' | Plug 'maksimr/vim-jsbeautify' | Plug 'einars/js-beautify'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
+Plug 'maksimr/vim-jsbeautify', { 'for': 'javascript' }
+Plug 'einars/js-beautify', { 'for': 'javascript' }
 Plug 'uarun/vim-protobuf', { 'for': 'proto' }
 Plug 'rodjek/vim-puppet', { 'for': 'puppet' }
 Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'darfink/vim-plist', { 'for': 'plist' }
-" Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'docker/docker' , {'for': 'Dockerfile'}
 
 Plug 'rizzatti/dash.vim'
@@ -180,6 +177,12 @@ function! s:setupWrapping()
   set textwidth=80
 endfunction
 
+augroup load_us_ycm
+  autocmd!
+  autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets', 'YouCompleteMe')
+                     \| call youcompleteme#Enable() | autocmd! load_us_ycm
+augroup END
+
 
 augroup vimrcEx
   " Clear all autocmds in the group
@@ -286,7 +289,6 @@ if has("statusline") && !&cp
   set statusline=%<%1*\ %f\ %*       " filename
   set statusline+=%2*%m%r%*          " modified, readonly
   set statusline+=\ %3*%y%*          " filetype
-  set statusline+=\ %4*%{fugitive#head()}%0*
   set statusline+=%=                 " left-right separation point
   set statusline+=\ %5*%l%*/%L[%p%%] " current line/total lines
   set statusline+=\ %5*%v%*[0x%B]    " current column [hex char]
@@ -634,7 +636,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 "
 " " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':t'
- let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
