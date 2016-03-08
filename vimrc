@@ -45,6 +45,7 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rking/ag.vim'
 Plug 'milkypostman/vim-togglelist'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
