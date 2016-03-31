@@ -77,6 +77,7 @@ call plug#end()
 
 filetype plugin indent on
 runtime macros/matchit.vim  " enables % to cycle through `if/else/endif`
+let g:polyglot_disabled = ['puppet']
 
 if has('gui_running')
   set background=light
