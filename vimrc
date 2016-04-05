@@ -51,7 +51,8 @@ Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'honza/vim-snippets', { 'on': [] }
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
+" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
+Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle','NERDTreeFind'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -181,7 +182,7 @@ endfunction
 
 augroup load_us_ycm
   autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets', 'YouCompleteMe')
+  autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets')
                      \| call youcompleteme#Enable() | autocmd! load_us_ycm
 augroup END
 
