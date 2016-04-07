@@ -37,7 +37,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'wincent/terminus'
@@ -49,10 +49,9 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
-Plug 'SirVer/ultisnips', { 'on': [] }
-Plug 'honza/vim-snippets', { 'on': [] }
-" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM'), 'on': [] }
-Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle','NERDTreeFind'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -120,7 +119,7 @@ set backupskip=/tmp/*,/private/tmp/*"
 set listchars=tab:▸\ ,trail:•,extends:❯,precedes:❮
 set list
 set expandtab
-set tabstop=4
+set tabstop=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -180,12 +179,6 @@ function! s:setupWrapping()
   set textwidth=80
 endfunction
 
-augroup load_us_ycm
-  autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets')
-                     \| call youcompleteme#Enable() | autocmd! load_us_ycm
-augroup END
-
 
 augroup vimrcEx
   " Clear all autocmds in the group
@@ -196,6 +189,7 @@ augroup vimrcEx
   " Avoid showing trailing whitespace when in insert mode
   au InsertEnter * :set listchars-=trail:•
   au InsertLeave * :set listchars+=trail:•
+
 
   " Elm
   " autocmd BufWritePost *.elm silent execute "!elm-format --yes %" | edit! | set filetype=elm
@@ -472,7 +466,7 @@ au FileType go nmap <Leader>gc <Plug>(go-channelpeers)
 
 au FileType go nmap <leader>gtc <Plug>(go-coverage)
 au FileType go nmap <leader>gv <Plug>(go-vet)
-au FileType go nmap <Leader>gl <Plug>(go-lint)
+au FileType go nmap <Leader>gl <Plug>(go-metalinter)
 au FileType go nnoremap <leader>ge :call go#errcheck#Run()<CR>
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
