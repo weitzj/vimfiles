@@ -262,6 +262,7 @@ you should place your code here."
   (setq shell-file-name "bash")
   (setq projectile-enable-caching t)
   (setq system-uses-terminfo nil)
+  (setq initial-scratch-message "")
 
   ;; enable mouse in terminal
   (global-set-key [mouse-4] 'scroll-down-line)
