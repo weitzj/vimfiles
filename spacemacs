@@ -267,6 +267,9 @@ you should place your code here."
   ;; use goimports on save
   (setq gofmt-command "goimports")
 
+  ;; line number padding. align 4 digits
+  (setq linum-format "%4d ")
+
   ;; http://emacs.stackexchange.com/questions/14940/emacs-doesnt-paste-in-evils-visual-mode-with-every-os-clipboard/15054#15054
   (fset 'evil-visual-update-x-selection 'ignore)
   (when (memq window-system '(mac ns))
