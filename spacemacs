@@ -264,6 +264,8 @@ you should place your code here."
   (setq system-uses-terminfo nil)
   (setq initial-scratch-message "")
 
+  ;; use goimports on save
+  (setq gofmt-command "goimports")
 
   ;; http://emacs.stackexchange.com/questions/14940/emacs-doesnt-paste-in-evils-visual-mode-with-every-os-clipboard/15054#15054
   (fset 'evil-visual-update-x-selection 'ignore)
