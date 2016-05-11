@@ -264,9 +264,6 @@ you should place your code here."
   (setq system-uses-terminfo nil)
   (setq initial-scratch-message "")
 
-  ;; enable mouse in terminal
-  (global-set-key [mouse-4] 'scroll-down-line)
-  (global-set-key [mouse-5] 'scroll-up-line)
 
   ;; http://emacs.stackexchange.com/questions/14940/emacs-doesnt-paste-in-evils-visual-mode-with-every-os-clipboard/15054#15054
   (fset 'evil-visual-update-x-selection 'ignore)
