@@ -27,6 +27,7 @@ values."
      auto-completion
      better-defaults
      elm
+     haskell
      emacs-lisp
      html
      go
