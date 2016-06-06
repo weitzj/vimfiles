@@ -40,6 +40,7 @@ values."
      (shell :variables
             shell-default-height 50
             shell-default-position 'bottom)
+     shell-scripts
      spell-checking
      syntax-checking
      tmux
@@ -242,7 +243,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup 'trailing
+   dotspacemacs-whitespace-cleanup nil
    ))
 
 (defun dotspacemacs/user-init ()
@@ -261,6 +262,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (setq require-final-newline t)
   (setq shell-file-name "bash")
   (setq projectile-enable-caching t)
   (setq system-uses-terminfo nil)
