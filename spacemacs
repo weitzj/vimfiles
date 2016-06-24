@@ -24,7 +24,12 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ansible
-     auto-completion
+
+     ;; By default, snippets are not shown in the auto-completion popup. To show them in the popup, set the variable auto-completion-enable-snippets-in-popup to t.
+     ;; To enable docstring tooltips set auto-completion-enable-help-tooltip to t
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-help-tooltip t)
      better-defaults
      elm
      haskell
@@ -39,6 +44,8 @@ values."
      org
      sql
      (shell :variables
+            shell-default-shell 'eshell
+            shell-default-term-shell "/bin/bash"
             shell-default-height 50
             shell-default-position 'bottom)
      shell-scripts
