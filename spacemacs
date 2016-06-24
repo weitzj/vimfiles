@@ -33,6 +33,7 @@ values."
      go
      javascript
      git
+     erc
      markdown
      puppet
      org
@@ -52,7 +53,9 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      editorconfig
                                       exec-path-from-shell
+                                      groovy-mode
                                       pbcopy
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -262,10 +265,12 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (setq editorconfig-mode 1)
   (setq require-final-newline t)
   (setq shell-file-name "bash")
   (setq projectile-enable-caching t)
   (setq system-uses-terminfo nil)
+  (setq indent-tabs-mode nil) ; use space instead of tab
   (setq initial-scratch-message "")
 
   ;; use goimports on save
