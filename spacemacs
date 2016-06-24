@@ -273,6 +273,16 @@ you should place your code here."
   (setq indent-tabs-mode nil) ; use space instead of tab
   (setq initial-scratch-message "")
 
+  ;; By default, snippets are not shown in the auto-completion popup. To show them in the popup, set the variable auto-completion-enable-snippets-in-popup to t.
+  (setq-default dotspacemacs-configuration-layers
+                '((auto-completion :variables
+                                   auto-completion-enable-snippets-in-popup t)))
+
+  ;; To enable docstring tooltips set auto-completion-enable-help-tooltip to t
+  (setq-default dotspacemacs-configuration-layers
+                '((auto-completion :variables
+                                   auto-completion-enable-help-tooltip t)))
+
   ;; use goimports on save
   (setq gofmt-command "goimports")
 
