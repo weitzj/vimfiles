@@ -35,7 +35,9 @@ values."
      haskell
      emacs-lisp
      html
-     go
+     (go :variables
+         gofmt-command "goimports"
+         go-use-gometalinter t)
      javascript
      git
      erc
@@ -289,9 +291,6 @@ you should place your code here."
   (setq-default dotspacemacs-configuration-layers
                 '((auto-completion :variables
                                    auto-completion-enable-help-tooltip t)))
-
-  ;; use goimports on save
-  (setq gofmt-command "goimports")
 
   ;; line number padding. align 4 digits
   (setq linum-format "%4d ")
