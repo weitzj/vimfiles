@@ -38,6 +38,7 @@ values."
      better-defaults
      dockerfile
      elm
+     mu4e
      lua
      haskell
      emacs-lisp
@@ -54,7 +55,7 @@ values."
      sql
      (shell :variables
             shell-default-shell 'eshell
-            shell-default-term-shell "/bin/bash"
+            shell-default-term-shell "/usr/local/bin/fish"
             shell-default-height 50
             shell-default-position 'bottom)
      shell-scripts
@@ -69,6 +70,7 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      helm-notmuch
                                       editorconfig
                                       exec-path-from-shell
                                       groovy-mode
@@ -127,7 +129,7 @@ values."
    dotspacemacs-startup-lists '(recents bookmarks projects)
    ;; Number of recent files to show in the startup buffer. Ignored if
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
-   dotspacemacs-startup-recent-list-size 40
+   dotspacemacs-startup-recent-list-size 10
    ;; Default major mode of the scratch buffer (default `text-mode')
    dotspacemacs-scratch-mode 'text-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
@@ -284,11 +286,11 @@ you should place your code here."
   (setq editorconfig-mode 1)
   (setq require-final-newline t)
   (setq shell-file-name "bash")
+  (projectile-global-mode)
   (setq projectile-enable-caching t)
   (setq system-uses-terminfo nil)
-  (setq indent-tabs-mode nil) ; use space instead of tab
+  (setq-default indent-tabs-mode nil) ; use space instead of tab
   (setq initial-scratch-message "")
-
   ;; By default, snippets are not shown in the auto-completion popup. To show them in the popup, set the variable auto-completion-enable-snippets-in-popup to t.
   (setq-default dotspacemacs-configuration-layers
                 '((auto-completion :variables
@@ -318,6 +320,23 @@ you should place your code here."
   (add-hook 'company-mode-hook
             (lambda()
               (global-set-key (kbd "S-SPC") 'company-complete)))
+
+  (setq-default dotspacemacs-configuration-layers
+                '((mu4e :variables
+                        mu4e-installation-path "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp/mu/mu4e")))
+
+  ;; ; make sure emacs finds applications in /usr/local/bin
+  ;; (setq exec-path (cons "/usr/local/bin" exec-path))
+
+  ; tell mu4e how to sync email
+  (setq mu4e-get-mail-command "/usr/local/bin/mbsync -a"
+        mu4e-html2text-command "/usr/local/bin/w3m -T text/html"
+        mu4e-update-interval 120
+        mu4e-headers-auto-update t
+        mu4e-maildir "/Users/weitz/mailarchive/iosphere"
+        mu4e-drafts-folder "/Drafts"
+        mu4e-sent-folder "/Sent"
+        mu4e-trash-folder "/Trash")
 )
 
 
