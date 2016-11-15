@@ -18,6 +18,12 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     vimscript
+     csv
+     (go :variables
+         gofmt-command "goimports"
+         go-use-gocheck-for-testing t
+         go-vet t)
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -38,14 +44,11 @@ values."
      better-defaults
      dockerfile
      elm
-     mu4e
+     ;; mu4e
      lua
      haskell
      emacs-lisp
      html
-     (go :variables
-         gofmt-command "goimports"
-         go-use-gometalinter t)
      javascript
      git
      erc
@@ -337,6 +340,13 @@ you should place your code here."
         mu4e-drafts-folder "/Drafts"
         mu4e-sent-folder "/Sent"
         mu4e-trash-folder "/Trash")
+
+  ;; scroll in terminal
+  (unless window-system
+    (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
+    (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
+
+  (setq transient-mark-mode t)
 )
 
 
