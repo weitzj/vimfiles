@@ -149,7 +149,7 @@ vnoremap <silent> # :<C-U>
 set wildignore+=tmp/**,*.rbc,.rbx,*.scssc,*.sassc,*.so,*.swp,*.zip,*.exe
 set wildignore+=*.class,.git,.hg,.svn,target/**
 " ignore Bundler standalone/vendor installs & gems
-set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**,vendor/gems/**
+set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**,vendor/gems/**,vendor/**
 set wildignore+=node_modules/**
 set wildignore+=.bundle/**
 set wildmode=longest,list,full
@@ -510,9 +510,10 @@ if executable('ag')
       \ --ignore .svn
       \ --ignore .hg
       \ --ignore .DS_Store
+      \ --ignore "vendor/**"
       \ --ignore "**/*.pyc"
       \ -g ""'
-   let g:ctrlp_use_caching = 1
+   let g:ctrlp_use_caching = 0
 endif
 " nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
