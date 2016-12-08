@@ -43,7 +43,10 @@ values."
                       auto-completion-complete-with-key-sequence-delay 0.1
                       auto-completion-private-snippets-directory nil)
      better-defaults
-     elm
+     (elm :variables
+          elm-format-command "elm-format-0.18"
+          elm-format-on-save t
+          elm-sort-imports-on-save t)
      ;; mu4e
      lua
      haskell
