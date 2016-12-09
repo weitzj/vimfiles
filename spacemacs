@@ -44,7 +44,7 @@ values."
                       auto-completion-private-snippets-directory nil)
      better-defaults
      (elm :variables
-          elm-format-command "elm-format-0.18"
+          elm-format-command "elm-format"
           elm-format-on-save t
           elm-sort-imports-on-save t)
      ;; mu4e
@@ -350,6 +350,11 @@ you should place your code here."
   (unless window-system
     (global-set-key (kbd "<mouse-4>") 'scroll-down-line)
     (global-set-key (kbd "<mouse-5>") 'scroll-up-line))
+
+  ;; (with-eval-after-load 'company
+  ;;   (add-to-list 'company-backends 'company-elm))
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-elm))
 
   (setq transient-mark-mode t)
 )
