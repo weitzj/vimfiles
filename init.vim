@@ -40,7 +40,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
 " Fast file searching
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'lvht/fzf-mru' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Full Text search
@@ -468,12 +468,12 @@ let g:go_def_mapping_enabled = 0
 au FileType go nmap <C-]> <Plug>(go-def)
 au FileType go nmap <Leader><C-]> <Plug>(go-doc-vertical)
 
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
 
-au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>gi <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap <Leader>gc <Plug>(go-channelpeers)
 
@@ -565,12 +565,13 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-nnoremap <silent> <Leader>b :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
+nnoremap <silent> <Leader>b :FZFMru<CR>
+" nnoremap <silent> <Leader>b :call fzf#run({
+" \   'source':  reverse(<sid>buflist()),
+" \   'sink':    function('<sid>bufopen'),
+" \   'options': '+m',
+" \   'down':    len(<sid>buflist()) + 2
+" \ })<CR>
 
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -663,6 +664,12 @@ endfunction
 
 " Jump to tags across buffers https://github.com/junegunn/fzf/wiki/Examples-(vim)
 command! Tags call s:tags()
+
+
+" set max lenght for the mru file list
+let g:fzf_mru_file_list_size = 10 " default value
+" set path pattens that should be ignored
+let g:fzf_mru_ignore_patterns = 'fugitive\|\.git/\|\_^/tmp/' " default value
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline
