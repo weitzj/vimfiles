@@ -1,5 +1,9 @@
 " You must have vim-plug installed
 " Call :PlugInstall on first invocation, later on :PlugUpdate
+" To install the neovim python:
+"
+" sudo -H pip2 install --user neovim --ignore-installed 
+" pip3 install --user neovim --ignore-installed 
 
 call plug#begin()
 " Colorscheme
