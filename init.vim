@@ -31,8 +31,7 @@ Plug 'ervandew/supertab'
 " Tmux naviation
 Plug 'christoomey/vim-tmux-navigator'
 
-" Sane tmux clipboard
-Plug 'roxma/vim-tmux-clipboard'
+Plug 'hashivim/vim-terraform'
 
 " Toggle comments
 Plug 'tpope/vim-commentary'
@@ -57,6 +56,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'Raimondi/delimitMate'
 
 " LANGUAGES
+
+" Bash suppor
+" Plug 'vim-scripts/bash-support.vim'
+"
 " Go support
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 " Go support autocompletion
@@ -207,6 +210,7 @@ augroup vimrcEx
   " Enable gradle fileType support as groovy files.
   au BufNewFile,BufRead *.gradle setf groovy
   au BufNewFile,BufRead *.groovy setf groovy
+  au BufNewFile,BufRead Jenkinsfile setf groovy
 
   au! BufNewFile,BufRead *.ly,*.ily,*.lytex set ft=lilypond commentstring=%\ %s
 
@@ -388,6 +392,10 @@ map <F3> mzgg=G`z<CR>
 
 " reformat
 map <F4> mzggVGgq`z<CR>
+
+" terraform
+au FileType tf nmap <F3> :TerraformFmt<cr>
+let g:terraform_fmt_on_save = 1
 
 
 " JSON
@@ -671,7 +679,7 @@ command! Tags call s:tags()
 
 
 " set max lenght for the mru file list
-let g:fzf_mru_file_list_size = 10 " default value
+let g:fzf_mru_file_list_size = 20 " default value
 " set path pattens that should be ignored
 let g:fzf_mru_ignore_patterns = 'fugitive\|\.git/\|\_^/tmp/' " default value
 
